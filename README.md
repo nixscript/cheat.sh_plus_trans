@@ -1,6 +1,6 @@
 ## cheat.sh_plus_trans
 
-Bash script for translating tips from cheat.sh
+Bash script for translating tips from [cheat.sh](http://cheat.sh/)
 
 ### Welcome
 
