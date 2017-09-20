@@ -4,7 +4,7 @@
 # Check translate-shell script
 if [[ ! `trans -V` ]]
 then
-        echo -e "\nWARNING!\n========"
+        echo -e "\n\e[33mWARNING!\n========\e[0m"
         echo -e "To run the script, you need a 'trans' script from this repository:"
         echo -e "https://github.com/soimort/translate-shell/releases\n"
         exit 1
@@ -13,7 +13,7 @@ fi
 # Check curl
 if [[ ! `curl -V` ]]
 then
-        echo -e "\nWARNING!\n========"
+        echo -e "\n\e[33mWARNING!\n========\e[0m"
         echo -e "To run the script, you need install 'curl'"
         exit 1
 fi
