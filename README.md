@@ -1,4 +1,5 @@
 ## cheat.sh_plus_trans
+[![Build Status](https://travis-ci.org/grigruss/cheat.sh_plus_trans.svg?branch=master)](https://travis-ci.org/grigruss/cheat.sh_plus_trans)
 
 Bash script for translating tips from [cheat.sh](http://cheat.sh/)
 
