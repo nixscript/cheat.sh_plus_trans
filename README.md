@@ -9,6 +9,8 @@ Bash script for translating tips from [cheat.sh](http://cheat.sh/)
 
 This script requires curl and [Translate Shell](https://github.com/soimort/translate-shell).
 
+##### Download only from releases!!!
+
 ### Usage
 ```markdown
 # Help tip about a command
