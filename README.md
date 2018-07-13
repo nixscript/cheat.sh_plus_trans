@@ -5,9 +5,10 @@
 
 Bash script for translating tips from [cheat.sh](http://cheat.sh/)
 
-### Welcome
+### Dependencies
 
-This script requires curl and [Translate Shell](https://github.com/soimort/translate-shell).
++ curl
++ [translate-shell](https://github.com/soimort/translate-shell)
 
 ### Install
 ```
