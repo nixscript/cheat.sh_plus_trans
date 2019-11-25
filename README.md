@@ -27,4 +27,7 @@ $ cheat.sh commandname
 
 # Find help tips
 $ cheat.sh keyword
+
+# Colored result
+$ cheat.sh -T commandname
 ```
