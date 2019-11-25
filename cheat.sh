@@ -58,7 +58,7 @@ for answ in $src
 do
 	if [[ "${answ:0:1}" == "#" ]]
 	then
-		VR="${R["$count"]//#/# \[ru\]}"
+		VR="${R["$count"]//#/# \[$lang\]}"
 		VE="${answ//#/# \[en\]}"
 		if [[ "$T" == 0 ]]
 		then
