@@ -21,22 +21,54 @@ fi
 lang=$(locale | grep -i lang)
 lang="${lang:5:2}"
 
-curl "cheat.sh/$1" | while read -r src; do
-        if [[ ${src:11:1} == "#" ]]
-        then
-#                flag="no"
-                enString=${src#*\#}
-                enString=${enString%[*}
-                echo -e "\\e[30;1m# [en]$enString[0m"
-                IFS=$'\n'
-                count=0
-                for answ in $(trans "$enString"); do
-                        if [ $count == 1 ]; then
-                                echo -e "\\e[32;1m# [ru] $answ\\e[0m"
-                        fi
-                        count=$((count + 1))
-                done
-        else
-                echo "$src"
-        fi
+T=0
+while [ -n "$1" ]
+do
+	case "$1" in
+		-T) T=1;;
+		*) U="$1"; break;;
+	esac
+	shift
+done
+
+src=$(curl "cht.sh/${U}?T")
+IFS=$'\n'
+S=''
+for answ in $src
+do
+	if [[ "${answ:0:1}" == "#" ]]
+	then
+		S+="
+$answ"
+	fi
+done
+res=$(trans -b "$S")
+R=''
+C=0
+IFS=$'\n'
+for row in $res
+do
+	R[$C]="$row"
+	((C++))
+done
+
+count=0
+IFS=$'\n'
+for answ in $src
+do
+	if [[ "${answ:0:1}" == "#" ]]
+	then
+		VR="${R["$count"]//#/# \[ru\]}"
+		VE="${answ//#/# \[en\]}"
+		if [[ "$T" == 0 ]]
+		then
+			echo -e "\e[32;1m$VR\e[0m\n\e[32m$VE\e[0m"
+		else
+			echo -e "$VR\n$VE"
+		fi
+		((count++))
+	else
+		echo "$answ"
+		echo
+	fi
 done
