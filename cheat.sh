@@ -2,7 +2,7 @@
 # Author https://github.com/grigruss
 
 # Check translate-shell script
-if [[ ! $(trans -V) ]]
+if ! trans -V >/dev/null
 then
         echo -e "\\n\\e[33mWARNING!\\n========\\e[0m"
         echo -e "To run the script, you need a 'trans' script from this repository:"
@@ -11,7 +11,7 @@ then
 fi
 
 # Check curl
-if [[ ! $(curl -V) ]]
+if ! curl -V >/dev/null
 then
         echo -e "\\n\\e[33mWARNING!\\n========\\e[0m"
         echo -e "To run the script, you need install 'curl'"
@@ -31,7 +31,7 @@ do
 	shift
 done
 
-src=$(curl "cht.sh/${U}?T")
+src=$(curl "cht.sh/${U}?T" 2>/dev/null)
 IFS=$'\n'
 S=''
 for answ in $src
@@ -58,11 +58,11 @@ for answ in $src
 do
 	if [[ "${answ:0:1}" == "#" ]]
 	then
-		VR="${R["$count"]//#/# \[$lang\]}"
+		VR="${R[$count]//#/# \[$lang\]}"
 		VE="${answ//#/# \[en\]}"
 		if [[ "$T" == 0 ]]
 		then
-			echo -e "\e[32;1m$VR\e[0m\n\e[32m$VE\e[0m"
+			echo -e "\e[32;1m$VR\e[0m\n\e[30;1m$VE\e[0m"
 		else
 			echo -e "$VR\n$VE"
 		fi
