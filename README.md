@@ -31,3 +31,5 @@ $ cheat.sh keyword
 # Colored result
 $ cheat.sh -T commandname
 ```
+
+Go to [nixscript.ru/tips](https://nixscript.ru/tips) for get some tips! 
